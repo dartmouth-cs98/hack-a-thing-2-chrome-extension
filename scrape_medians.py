@@ -13,9 +13,10 @@ def scrape(url):
         to_list = [str(term), str(course), str(enrollment), str(grade)]
         data.append(to_list)
 
-    f = csv.writer(open("test.csv", "w"))
+    f = csv.writer(open("csv_files/" + term + "_grades.csv", "w"))
     for row in data:
         f.writerow((row[0], row[1], row[2], row[3]))
+    return (str(term), str(soup.title.string))
 
 if __name__ == "__main__":
 
